@@ -438,6 +438,13 @@
 # f.write("JAva...")
 # f.close()
 
-color = ["red\n", "yellow\n", "black\n", "white\n", "blue"]
-f = open("demo1.txt", "w")
-print(f.color())
+# color = ["red\n", "yellow\n", "black\n", "white\n", "blue"]
+# f = open("demo1.txt", "w")
+# f.writelines(color)
+# f.close()
+
+
+# (4). Append in a Python File
+# f = open("demo1.txt", "a+")
+# f.write("\nskyblye")
+# f.close()
