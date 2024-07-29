@@ -445,6 +445,18 @@
 
 
 # (4). Append in a Python File
-f = open("demo1.txt", "a+")
-f.write("\nskyblye")
+# f = open("demo1.txt", "a+")
+# f.write("\nskyblye")
+# f.close()
+
+
+
+# 29/07/24
+# csv file operations in python :
+import csv
+f = open("student.csv", "r")
+csv_reader = csv.reader(f)
+print("Content of student file are : ")
+for row in csv_reader:
+    print(row)
 f.close()
