@@ -460,3 +460,63 @@
 # for row in csv_reader:
 #     print(row)
 # f.close()
+
+
+
+
+# 31/07/24
+# (1). Python File tell() Method :
+
+# f = open("demo.txt", "r+")
+# print(f.tell())
+# f.close()
+
+# f = open("demo1.txt", "r+")
+# print(f.readline())
+# print(f.tell())
+# f.close()
+
+
+# (2). Python file seek() Method :
+# f = open("demo1.txt", "r")
+# f.seek(20)
+# print(f.tell())
+# print(f.readline())
+# f.close()
+
+
+# (3). Python Delete File   (Python file remove() Method) :
+
+# import os
+# os.remove("demo2.txt")
+
+# Check if File exist : 
+
+# import os
+# if os.path.exists("demo2.txt"):
+#     os.remove("demo2.txt")
+# else:
+#     print("The file does not exist...")
+
+
+# remove directory : (remove specific directory if it is empty)
+
+# import os
+# os.rmdir("file")
+
+
+# (remove specific and parent directory also if empty) :
+# import os
+# path = "E:\Shilpa\SHILPA\Python__1\directory\dir1"
+# os.removedirs(path)
+# print("Path is removed")
+
+
+# (4). make directories in python :
+# import os 
+# new_dir_path = "E:\Shilpa\SHILPA\Python__1\directory"
+# os.mkdir(new_dir_path)
+# print("Path is created")
+
+
+# makedirs :

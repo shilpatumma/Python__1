@@ -1,6 +1,1 @@
-red
-yellow
-black
-white
-blueskyblye
-skyblye
+The quick, brown fox jumps over a lazy dog.
