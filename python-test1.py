@@ -1,6 +1,23 @@
 # (1). check the person salary and cibil score to determine the loan amount using conditional statement
 # Ans...
 
+# salary = int(input("Enter Salary : "))  
+# cibil = int(input("Enter cibil : "))
+    
+# if (cibil >= 750) and (salary > 50000):
+#     print("Eligible for a loan amount 100000")
+# elif (cibil >= 700) and (salary > 40000):
+#     print("Eligible for a loan amount 75,000")
+# elif (cibil >= 650) and (salary > 30000):
+#     print("Eligible for a loan amount 50,000")
+# elif (cibil >= 600) and (salary > 20000):
+#     print("Eligible for a loan amount 40,000")
+# else:
+#     print("Not eligible for a loan")
+
+
+
+
 # (2). print leap year by user input using nested conditional statement
 # Ans...
 
@@ -87,6 +104,11 @@
 # (7). print a string is palindrome using while loop
 # Ans...
 
+# palindrome = input("Enter String : ")
+# if(palindrome == palindrome[::-1]):
+#     print("The string is a palindrome")
+# else:
+#     print("The string is not a palindrome")
 
 
 
@@ -132,3 +154,64 @@
 
 
 
+
+# (11). Define a function to multiply every character in string with 4 using for loop.
+# Ans...
+
+# def multiply_characters(input_string):
+#     result = ""
+#     for char in input_string:
+#         result += char * 4  # Multiply each character by 4
+#     return result
+
+# # Example usage
+# input_str = "abc"
+# output_str = multiply_characters(input_str)
+# print(output_str)  # Output: aaaabbbbcccc
+
+
+
+# (12). Define a function to check if 2 given variables value is 20 when added or 1 variable have a value of 20.
+# Ans...
+
+# def value(var1, var2):
+#     if (var1 + var2 == 20 or var1 == 20 or var2 == 20):
+#         return True
+#     return False
+
+# result1 = value(10, 5)  
+# result2 = value(10, 20)  
+# result3 = value(100, -80)   
+
+# print(result1)  
+# print(result2)  
+# print(result3)  
+
+
+
+
+# (13). Define a function to check if two words of a single string is starting from same alphabet  
+# Ans...
+
+# def alphabet(a):
+
+#     words = a.split()
+    
+#     if len(words) < 2:
+#         return False
+    
+#     first_character = words[0][0]
+#     second_character = words[1][0]
+    
+#     if first_character.lower() == second_character.lower():
+#         return True
+#     else:
+#         return False
+
+# result1 = alphabet("Apple Animal")  
+# result2 = alphabet("Hello World")  
+# result3 = alphabet("Python Programming")       
+
+# print(result1)  
+# print(result2)  
+# print(result3)
