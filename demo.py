@@ -513,10 +513,10 @@
 
 
 # (4). make directories in python :
-# import os 
-# new_dir_path = "E:\Shilpa\SHILPA\Python__1\directory"
-# os.mkdir(new_dir_path)
-# print("Path is created")
+import os 
+new_dir_path = "E:\Shilpa\SHILPA\Python__1\directory"
+os.mkdir(new_dir_path)
+print("Path is created")
 
 
 # makedirs :
