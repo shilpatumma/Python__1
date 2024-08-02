@@ -61,20 +61,20 @@
 # Ans...
 
 
-# def read_file_to_variable(file_path):
-#     lines = []
-#     try:
-#         with open("file-handling-prac.txt", 'r') as file:
-#             for line in file:
-#                 lines.append(line.strip())
-#     except FileNotFoundError:
-#         print(f"Error: The file '{file_path}' was not found.")
-#     except Exception as e:
-#         print(f"An error occurred: {e}")
-#     return lines
+def read_file_to_variable(file_path):
+    lines = []
+    try:
+        with open("file-handling-prac.txt", 'r') as file:
+            for line in file:
+                lines.append(line.strip())
+    except FileNotFoundError:
+        print(f"Error: The file '{file_path}' was not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    return lines
 
-# file_path = "file-handling-prac.txt"  
-# lines = read_file_to_variable(file_path)
+file_path = "file-handling-prac.txt"  
+lines = read_file_to_variable(file_path)
 
-# for i, line in enumerate(lines):
-#     print(f"Line {i + 1}: {line}")
+for i, line in enumerate(lines):
+    print(f"Line {i + 1}: {line}")
