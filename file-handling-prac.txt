@@ -1,5 +1,17 @@
-Pizza
-Burger
-Chinese
-Noodles
-Sandwich 
+Orange
+color : Orange
+
+Apple
+color : red
+
+Guava
+color : green
+
+Berry 
+color : red
+
+Papaya
+color : yellow
+
+Kiwi
+color : green
