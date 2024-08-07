@@ -59,8 +59,6 @@ class Book:
     def add_copies(self,number):
         self.ca += number
 
-    def remove_copies(self,number):
-        self.ca -= number
 
     def display(self):
         print(self.t)
