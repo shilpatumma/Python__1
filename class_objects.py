@@ -78,10 +78,10 @@ Motivational_book = Book (
         pages = "256 pages",
         price = 171,
         copies_available = 5,
-        checked_out_by = ["Swastika"]
+        checked_out_by = "Swastika"
     )
 
 Motivational_book.display()
-# book1 = Book("11 Rules For Life", 256, "Chetan Bhagat", "26 February 2024", 171)
+book1 = Book("11 Rules For Life", 256, "Chetan Bhagat", "26 February 2024", 171, 6, "Sneha")
 
-# book1.display()
+book1.display()
