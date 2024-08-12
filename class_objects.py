@@ -204,16 +204,16 @@
 # 4). Python oops program to create a class with class variables and update as id.
 # Ans...
 
-class Person:
-    id = 0
-    def __init__(self,name,age):
-        self.n = name
-        self.a = age
-        Person.id += 1
+# class Person:
+#     id = 0
+#     def __init__(self,name,age):
+#         self.n = name
+#         self.a = age
+#         Person.id += 1
 
-    def display(self):
-        print(f"Hello, my name is {self.name} and I'm {self. age} years old.")
+#     def display(self):
+#         print(f"Hello, my name is {self.name} and I'm {self. age} years old.")
 
-x = Person("Sneha", 20)
-x2 = Person("Suraj", 23)
-print(x2.id)
+# x = Person("Sneha", 20)
+# x2 = Person("Suraj", 23)
+# print(x2.id)
