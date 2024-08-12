@@ -31,6 +31,26 @@
 # c.par_2()
 
 
+# class Mother:
+#     mothername = ""
+#     def mother(self):
+#         print(self.mothername)
+
+# class Father:
+#     fathername = ""
+#     def father(self):
+#         print(self.fathername)
+
+# class Son(Mother,Father):
+#     def son(self):
+#         print("Mother name is : " + self.mothername)
+#         print("Father name is : " + self.fathername)
+
+# s = Son()
+# s.mothername = "Vina"
+# s.fathername = "Vinesh"
+# s.son()
+
 
 
 # (3). Multilevel Inheritance :
@@ -93,7 +113,7 @@
 #     def child2(self):
 #         print("Child_2")
 
-# class Grand_child(Child_1,Child_2):
+# class Grand_child(hild_                                                             1,Child_2):
 #     def grandchild(self):
 #         print("Grandchild")
 
@@ -134,14 +154,14 @@
 #     def cat(self):
 #         print("Cat")
 
-# class Dog(Animal,Cat):
-#     def dog(self):
-#         print("Dog")
+# class Kitten(Animal,Cat):
+#     def kitten(self):
+#         print("Kitten")
 
-# d = Dog()
+# d = Kitten()
 # d.animal()
 # d.cat()
-# d.dog()
+# d.kitten()
 
 
 

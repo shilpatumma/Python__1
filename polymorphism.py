@@ -21,11 +21,10 @@
 #         print("Parent")
 
 # class Child(Parent):
-#     def child(self):
+#     def parent(self):
 #         print("Child")
 
 # c = Child()
-# c.child()
 # c.parent()
 
 
