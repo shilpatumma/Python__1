@@ -113,7 +113,7 @@
 #     def child2(self):
 #         print("Child_2")
 
-# class Grand_child(hild_                                                             1,Child_2):
+# class Grand_child(Child_1,Child_2):
 #     def grandchild(self):
 #         print("Grandchild")
 
