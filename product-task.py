@@ -259,6 +259,104 @@
 
 
 
+# (3). Banking System
+# Account Hierarchy:
+# Base class Account with attributes like account_number, balance, customer.
+# Subclasses: SavingsAccount, CheckingAccount, FixedDeposit, etc., 
+# with specific attributes (e.g., interest_rate, maturity_date) and methods (e.g., calculate_interest, withdraw).
+
+# Transaction Hierarchy:
+# Base class Transaction with attributes like transaction_id, account, amount, date.
+# Subclasses: Deposit, Withdrawal, Transfer, etc., 
+# with specific attributes (e.g., beneficiary_account) and methods (e.g., process_transaction).
+
+# Ans...
+
+# Account
+class Account:
+    def __init__(self, account_number, balance, customer):
+        self.account_number = account_number
+        self.balance = balance
+        self.customer = customer
+
+    def deposit(self, amount):
+        self.balance += amount
+        return f"\nDeposited {amount}. \nNew balance is : {self.balance}"
+
+    def withdraw(self, amount):   
+        if amount <= self.balance:            
+            self.balance -= amount 
+            return f"\nWithdraw {amount}. \nNew balance is : {self.balance}"
+        else:
+            return "Insufficient Amount."
+
+    def get_balance(self):
+        return f"Current balance : {self.balance}"
+
+
+class SavingsAccount(Account):
+    def __init__(self, account_number, balance, customer, interest_rate):
+        super().__init__(account_number, balance, customer)
+        self.interest_rate = interest_rate
+
+    def calculate_interest(self):
+        interest = self.balance * self.interest_rate
+        self.balance += interest
+        return f"\nInterest added : {interest}. \nNew balance is : {self.balance}"
+
+
+saving_account = SavingsAccount(101, 5000, "Shivani Mishra", 0.05)
+print(saving_account.get_balance())
+print(saving_account.deposit(2000))
+print(saving_account.calculate_interest())
+print(saving_account.withdraw(1000))
+
+
+# class CheckingAccount(Account):
+#     def __init__(self, account_number, balance, customer):
+#         super().__init__(account_number, balance, customer)
+
+# class FixedDeposit(Account):
+#     def __init__(self, account_number, balance, customer, maturity_date):
+#         super.__init__(account_number, balance, customer)
+#         self.maturity_date = maturity_date
+ 
+
+# Transaction
+# class Transaction:
+#     def __init__(self, transaction_id, account, amount, date):
+#         self.transaction_id = transaction_id
+#         self.account = account
+#         self.amount = amount
+#         self.date = date
+
+#     def process_transaction(self):
+
+# class Deposit(Transaction):
+#     def __init__(self, transaction_id, account, amount, date):
+#         super().__init__(transaction_id, account, amount, date)
+
+
+# class Withdrawal(Transaction):
+#     def __init__(self, transaction_id, account, amount, date):
+#         super().__init__(transaction_id, account, amount, date)
+
+
+# class Transfer(Transaction):
+#     def __init__(self, transaction_id, account, amount, date, beneficiary_account):
+#         super().__init__(transaction_id, account, amount, date)
+#         self.beneficiary_account = beneficiary_account
+
+
+
+
+
+
+
+
+
+
+
 # (5). Inventory Management System
 # Product Hierarchy:
 # Base class Product with attributes like product_id, name, price, quantity.
