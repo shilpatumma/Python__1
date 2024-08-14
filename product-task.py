@@ -272,85 +272,192 @@
 
 # Ans...
 
-# Account
-class Account:
-    def __init__(self, account_number, balance, customer):
-        self.account_number = account_number
-        self.balance = balance
-        self.customer = customer
+# class Bank:
+#     def __init__(self,account_number,name,initial_balance=0):
+#         self.acc_num = account_number
+#         self.n = name
+#         self.balance = initial_balance
 
-    def deposit(self, amount):
-        self.balance += amount
-        return f"\nDeposited {amount}. \nNew balance is : {self.balance}"
+#     def deposit(self,amount):
+#         self.balance += amount
+#         print(f"Deposited {amount}. New balance is : {self.balance}")
 
-    def withdraw(self, amount):   
-        if amount <= self.balance:            
-            self.balance -= amount 
-            return f"\nWithdraw {amount}. \nNew balance is : {self.balance}"
-        else:
-            return "Insufficient Amount."
+#     def withdraw(self,amount):
+#         if(amount <= self.balance):
+#             self.balance -= amount
+#             print(f"Withdraw {amount}. New balance is : {self.balance}")
+#         else:
+#             print("Insufficient funds.")
 
-    def get_balance(self):
-        return f"Current balance : {self.balance}"
+#     def check_balance(self):
+#         print(f"current balance is : {self.balance}")
 
+# accounts = []
 
-class SavingsAccount(Account):
-    def __init__(self, account_number, balance, customer, interest_rate):
-        super().__init__(account_number, balance, customer)
-        self.interest_rate = interest_rate
-
-    def calculate_interest(self):
-        interest = self.balance * self.interest_rate
-        self.balance += interest
-        return f"\nInterest added : {interest}. \nNew balance is : {self.balance}"
-
-
-saving_account = SavingsAccount(101, 5000, "Shivani Mishra", 0.05)
-print(saving_account.get_balance())
-print(saving_account.deposit(2000))
-print(saving_account.calculate_interest())
-print(saving_account.withdraw(1000))
-
-
-# class CheckingAccount(Account):
-#     def __init__(self, account_number, balance, customer):
+# class SavingsAccount(Bank):
+#     def __init__(self, account_number, balance, customer, interest_rate):
 #         super().__init__(account_number, balance, customer)
+#         self.interest_rate = interest_rate
 
-# class FixedDeposit(Account):
-#     def __init__(self, account_number, balance, customer, maturity_date):
-#         super.__init__(account_number, balance, customer)
-#         self.maturity_date = maturity_date
- 
+#     def calculate_interest(self):
+#         interest = self.balance * self.interest_rate
+#         self.balance += interest
+#         return f"\nInterest added : {interest}. \nNew balance is : {self.balance}"
 
-# Transaction
-# class Transaction:
-#     def __init__(self, transaction_id, account, amount, date):
-#         self.transaction_id = transaction_id
-#         self.account = account
-#         self.amount = amount
-#         self.date = date
+# while True:
+#     print("\nBank Management System")
+#     print("1. Create Account")
+#     print("2. Deposit Amount")
+#     print("3. Withdraw Amount")
+#     print("4. Check Bank Balance")
+#     print("5. Exit")
 
-#     def process_transaction(self):
+#     choice = input("Enter your choice (1-5) : ")
 
-# class Deposit(Transaction):
-#     def __init__(self, transaction_id, account, amount, date):
-#         super().__init__(transaction_id, account, amount, date)
+#     if (choice == "1"):
+#         account_number = input("Enter your account number : ")
+#         name = input("Enter Your name : ")
+#         account = Bank(account_number,name)
+#         accounts.append(account)
+#         print("Congratulations your account created successfully...")
+
+#     elif (choice == "2"):
+#         account_number = input("Enter your account number : ")
+#         if (account.acc_num == account_number):
+#             amount = float(input("Enter deposit amount: "))
+#             account.deposit(amount)
+#         else:
+#             print("Account Not Found.")
+
+#     elif (choice == "3"):
+#         account_number = input("Enter your account number : ")
+#         if (account.acc_num == account_number):
+#             amount = float(input("Enter deposit amount: "))
+#             account.withdraw(amount)
+#         else:
+#             print("Account Not Found.")
+
+#     elif (choice == "4"):
+#         account_number = input("Enter your account number : ")
+#         if (account.acc_num == account_number):
+#             account.check_balance()
+#         else:
+#             print("Account Not Found.")
+
+#     elif (choice == "5"):
+#         print("Exiting the program...")
+#         break
+
+#     else:
+#         print("Invalid choice. Please try again.")
 
 
-# class Withdrawal(Transaction):
-#     def __init__(self, transaction_id, account, amount, date):
-#         super().__init__(transaction_id, account, amount, date)
-
-
-# class Transfer(Transaction):
-#     def __init__(self, transaction_id, account, amount, date, beneficiary_account):
-#         super().__init__(transaction_id, account, amount, date)
-#         self.beneficiary_account = beneficiary_account
 
 
 
 
+# (4). Telecommunication System
+# Call Hierarchy:
+# Base class Call with attributes like caller, callee, start_time, end_time.
+# Subclasses: VoiceCall, VideoCall, ConferenceCall, etc., 
+# with specific attributes (e.g., video_quality, participants) 
+# and methods (e.g., calculate_duration, record_call).
 
+# Customer Hierarchy:
+# Base class Customer with attributes like customer_id, name, address.
+# Subclasses: IndividualCustomer, CorporateCustomer, etc., with specific attributes (e.g., company_name, tax_id) and methods (e.g., generate_bill).
+
+# Ans...
+
+class Call:
+    def __init__(self, caller, callee, start_time, end_time):
+        self.caller = caller
+        self.callee = callee
+        self.start_time = start_time
+        self.end_time = end_time
+
+    def calculate_duration(self):
+        duration = self.end_time - self.start_time
+        return duration
+
+class VoiceCall(Call):
+    def __init__(self, caller, callee, start_time, end_time):
+        super().__init__(caller, callee, start_time, end_time)
+
+    def record_call(self):
+        print(f"Recording Voice call : from {self.caller} to {self.callee}")
+
+class VideoCall(Call):
+    def __init__(self, caller, callee, start_time, end_time, video_quality):
+        super().__init__(caller, callee, start_time, end_time)
+        self.video_quality = video_quality
+
+    def record_call(self):
+        print(f"Recording Video call : from {self.caller} to {self.callee} at {self.video_quality}")
+
+class ConferenceCall(Call):
+    def __init__(self, caller, participants, start_time, end_time):
+        super().__init__(caller, participants[0], start_time, end_time)
+        self.participants = participants
+
+    def record_call(self):
+        print(f"Recording Reference call with participants : {', '.join(self.participants)}.")
+
+
+class Customer:
+    def __init__(self, customer_id, name, address):
+        self.customer_id = customer_id
+        self.name = name
+        self.address = address
+
+    def generate_bill(self):
+        return f"\nBill for {self.name} (ID : {self.customer_id})"
+
+
+class IndividualCustomer(Customer):
+    def __init__(self, customer_id, name, address, phone_number):
+        super().__init__(customer_id, name, address)
+        self.phone_number = phone_number
+
+    def generate_bill(self):
+        base_bill = super().generate_bill()
+        return f"{base_bill}\nPhone Number : {self.phone_number}"
+
+
+class CorporateCustomer(Customer):
+    def __init__(self, customer_id, name, address, company_name, tax_id):
+        super().__init__(customer_id, name, address)
+        self.company_name = company_name
+        self.tax_id = tax_id
+
+    def generate_bill(self):
+        base_bill = super().generate_bill()
+        return f"{base_bill}\nCompany Name is : {self.company_name}\nTax ID - {self.tax_id}"
+
+
+if __name__ == "__main__":
+    print("\n..........Telecommunication System..........")
+
+    individual = IndividualCustomer(101, "Pooja Shukla", "89, street road", 1234567890)
+    corporate = CorporateCustomer(201, "Mihir Mehra", "45, New Street", "ABC pvt ltd.", 12345)
+
+    voice_call = VoiceCall(individual.name, "Manoj Patel", 5, 30)
+    video_call = VideoCall(individual.name, "Chetna Nair", 10, 50, "720p")
+    conference_call = ConferenceCall(corporate.name, ["Sneha", "Bobby", "Kreeva"], 50, 150)
+
+    print("\nCalls :")
+    print(f"\nVoice Call Duration is : {voice_call.calculate_duration()} seconds")
+    voice_call.record_call()
+
+    print(f"\nVideo Call Duration is : {video_call.calculate_duration()} seconds")
+    video_call.record_call()
+
+    print(f"\nConference Call Duration is : {conference_call.calculate_duration()} seconds")
+    conference_call.record_call()
+
+    print("\nGenerating Bills :")
+    print(individual.generate_bill())
+    print(corporate.generate_bill())
 
 
 

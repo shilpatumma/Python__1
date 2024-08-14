@@ -75,74 +75,74 @@
 
 
 
-# class Bank:
-#     def __init__(self,account_number,name,initial_balance=0):
-#         self.acc_num = account_number
-#         self.n = name
-#         self.balance = initial_balance
+class Bank:
+    def __init__(self,account_number,name,initial_balance=0):
+        self.acc_num = account_number
+        self.n = name
+        self.balance = initial_balance
 
-#     def deposit(self,amount):
-#         self.balance += amount
-#         print(f"Deposited {amount}. New balance is : {self.balance}")
+    def deposit(self,amount):
+        self.balance += amount
+        print(f"Deposited {amount}. New balance is : {self.balance}")
 
-#     def withdraw(self,amount):
-#         if(amount <= self.balance):
-#             self.balance -= amount
-#             print(f"Withdraw {amount}. New balance is : {self.balance}")
-#         else:
-#             print("Insufficient funds.")
+    def withdraw(self,amount):
+        if(amount <= self.balance):
+            self.balance -= amount
+            print(f"Withdraw {amount}. New balance is : {self.balance}")
+        else:
+            print("Insufficient funds.")
 
-#     def check_balance(self):
-#         print(f"current balance is : {self.balance}")
+    def check_balance(self):
+        print(f"current balance is : {self.balance}")
 
-# accounts = []
+accounts = []
 
-# while True:
-#     print("\nBank Management System")
-#     print("1. Create Account")
-#     print("2. Deposit Amount")
-#     print("3. Withdraw Amount")
-#     print("4. Check Bank Balance")
-#     print("5. Exit")
+while True:
+    print("\nBank Management System")
+    print("1. Create Account")
+    print("2. Deposit Amount")
+    print("3. Withdraw Amount")
+    print("4. Check Bank Balance")
+    print("5. Exit")
 
-#     choice = input("Enter your choice (1-5) : ")
+    choice = input("Enter your choice (1-5) : ")
 
-#     if (choice == "1"):
-#         account_number = input("Enter your account number : ")
-#         name = input("Enter Your name : ")
-#         account = Bank(account_number,name)
-#         accounts.append(account)
-#         print("Congratulations your account created successfully...")
+    if (choice == "1"):
+        account_number = input("Enter your account number : ")
+        name = input("Enter Your name : ")
+        account = Bank(account_number,name)
+        accounts.append(account)
+        print("Congratulations your account created successfully...")
 
-#     elif (choice == "2"):
-#         account_number = input("Enter your account number : ")
-#         if (account.acc_num == account_number):
-#             amount = float(input("Enter deposit amount: "))
-#             account.deposit(amount)
-#         else:
-#             print("Account Not Found.")
+    elif (choice == "2"):
+        account_number = input("Enter your account number : ")
+        if (account.acc_num == account_number):
+            amount = float(input("Enter deposit amount: "))
+            account.deposit(amount)
+        else:
+            print("Account Not Found.")
 
-#     elif (choice == "3"):
-#         account_number = input("Enter your account number : ")
-#         if (account.acc_num == account_number):
-#             amount = float(input("Enter deposit amount: "))
-#             account.withdraw(amount)
-#         else:
-#             print("Account Not Found.")
+    elif (choice == "3"):
+        account_number = input("Enter your account number : ")
+        if (account.acc_num == account_number):
+            amount = float(input("Enter deposit amount: "))
+            account.withdraw(amount)
+        else:
+            print("Account Not Found.")
 
-#     elif (choice == "4"):
-#         account_number = input("Enter your account number : ")
-#         if (account.acc_num == account_number):
-#             account.check_balance()
-#         else:
-#             print("Account Not Found.")
+    elif (choice == "4"):
+        account_number = input("Enter your account number : ")
+        if (account.acc_num == account_number):
+            account.check_balance()
+        else:
+            print("Account Not Found.")
 
-#     elif (choice == "5"):
-#         print("Exiting the program...")
-#         break
+    elif (choice == "5"):
+        print("Exiting the program...")
+        break
 
-#     else:
-#         print("Invalid choice. Please try again.")
+    else:
+        print("Invalid choice. Please try again.")
 
 
 
