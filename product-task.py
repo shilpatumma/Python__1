@@ -66,11 +66,12 @@
 #         return f"{base_details}, Material: {self.material}, Dimensions: {self.dimensions}"
 
 # # Order and Shipping
-# class Order:
-#     def __init__(self, order_id, customer, items):
-#         self.order_id = order_id
-#         self.customer = customer
-#         self.items = items
+# # class Order:
+# #     def __init__(self, order_id, customer, items):
+# #         self.order_id = order_id
+# #         self.customer = customer
+# #         self.items = items
+
 
 #     def calculate_total(self):
 #         return sum(item.price for item in self.items)
@@ -125,6 +126,155 @@
 #     print(domestic_order.get_order_details())
 #     print("\n" + "="*40 + "\n")
 #     print(domestic_order.calculate_total())
+
+
+
+
+
+
+
+
+
+
+# class Product:
+#     def __init__(self, name, price, description):
+#         self.name = name
+#         self.price = price
+#         self.description = description
+
+#     def calculate_discount(self, discount_rate):
+#         return self.price * (1 - discount_rate)
+
+#     def get_product_details(self):
+#         return f"Name: {self.name}, Price: ${self.price:.2f}, Description: {self.description}"
+
+# # Subclass for Electronics
+# class ElectronicProduct(Product):
+#     def __init__(self, name, price, description, brand, warranty):
+#         super().__init__(name, price, description)
+#         self.brand = brand
+#         self.warranty = warranty
+
+#     def get_product_details(self):
+#         base_details = super().get_product_details()
+#         return f"{base_details}, Brand: {self.brand}, Warranty: {self.warranty} years"
+
+# # Subclass for Clothing
+# class Clothing(Product):
+#     def __init__(self, name, price, description, size, fabric):
+#         super().__init__(name, price, description)
+#         self.size = size
+#         self.fabric = fabric
+
+#     def get_product_details(self):
+#         base_details = super().get_product_details()
+#         return f"{base_details}, Size: {self.size}, Fabric: {self.fabric}"
+
+# # Subclass for Book
+# class Book(Product):
+#     def __init__(self, name, price, description, author, genre):
+#         super().__init__(name, price, description)
+#         self.author = author
+#         self.genre = genre
+
+#     def get_product_details(self):
+#         base_details = super().get_product_details()
+#         return f"{base_details}, Author: {self.author}, Genre: {self.genre}"
+
+# # Subclass for Furniture
+# class Furniture(Product):
+#     def __init__(self, name, price, description, material, dimensions):
+#         super().__init__(name, price, description)
+#         self.material = material
+#         self.dimensions = dimensions
+
+#     def get_product_details(self):
+#         base_details = super().get_product_details()
+#         return f"{base_details}, Material: {self.material}, Dimensions: {self.dimensions}"
+
+# # Order and Shipping
+# class Order:
+#     order_id = 0
+#     def __init__(self, customer, items):
+#         self.customer = customer
+#         self.items = items
+#         Order.order_id += 1
+#         self.order_id = Order.order_id
+
+
+#     def calculate_total(self):
+#         return sum(item.price for item in self.items)
+
+#     def get_order_details(self):
+#         item_details = "\n".join([item.get_product_details() for item in self.items])
+#         return f"\n\nOrder ID: {self.order_id}, Customer: {self.customer}, Items: \n{item_details}"
+
+# # Subclass for Domestic Order
+# class DomesticOrder(Order):
+#     def __init__(self, customer, items, shipping_address):
+#         super().__init__(customer, items)
+#         self.shipping_address = shipping_address
+
+#     def calculate_shipping_cost(self):
+#         # Example flat rate for domestic shipping
+#         return 5.00
+
+#     def get_order_details(self):
+#         base_details = super().get_order_details()
+#         return f"{base_details}\nShipping Address: {self.shipping_address}, Shipping Cost: ${self.calculate_shipping_cost():.2f}"
+
+# # Subclass for International Order
+# class InternationalOrder(Order):
+#     def __init__(self, customer, items, shipping_address, customs_duty):
+#         super().__init__(customer, items)
+#         self.shipping_address = shipping_address
+#         self.customs_duty = customs_duty
+
+#     def calculate_shipping_cost(self):
+#         # Example rate for international shipping
+#         return 20.00 + self.customs_duty
+
+#     def get_order_details(self):
+#         base_details = super().get_order_details()
+#         return f"{base_details}\nShipping Address: {self.shipping_address}, Shipping Cost: ${self.calculate_shipping_cost():.2f}, Customs Duty: ${self.customs_duty:.2f}"
+
+# # Example Usage
+# if __name__ == "__main__": 
+#     # Creating products
+#     laptop = ElectronicProduct("Laptop", 1200.00, "High-end gaming laptop", "BrandX", 2)
+#     tshirt = Clothing("T-shirt", 20.00, "Cotton T-shirt", "L", "Cotton")
+#     book = Book("Data Science 101", 30.00, "Introduction to Data Science", "Jane Doe", "Educational")
+#     sofa = Furniture("Sofa", 500.00, "Comfortable sofa", "Leather", "7x3 feet")
+
+
+
+#     laptop = ElectronicProduct("Laptop", 1200.00, "High-end gaming laptop", "BrandX", 2)
+#     tshirt = Clothing("T-shirt", 20.00, "Cotton T-shirt", "L", "Cotton")
+#     book = Book("Data Science 101", 30.00, "Introduction to Data Science", "Jane Doe", "Educational")
+#     sofa = Furniture("Sofa", 500.00, "Comfortable sofa", "Leather", "7x3 feet")
+
+#     # Creating an order
+#     order_items = [laptop, tshirt, book, sofa]
+#     domestic_order = DomesticOrder("John Smith", order_items, "123 Main St, Springfield")
+#     international_order = InternationalOrder("Jane Doe", order_items, "456 Global St, London", 50.00)
+
+
+    # order_items = [laptop, tshirt, book, sofa]
+    # domestic_order = DomesticOrder("Max", order_items, "123 Main St, Springfield")
+    # international_order = InternationalOrder("Bob", order_items, "456 Global St, London", 50.00)
+
+    # # Print order details
+    # print(domestic_order.get_order_details())
+    # print("\n" + "="*40 + "\n")
+    # print(domestic_order.calculate_total())
+
+
+    # print(international_order.get_order_details())
+    # print("\n" + "="*40 + "\n")
+    # print(international_order.calculate_total())
+
+
+
 
 
 
@@ -259,6 +409,8 @@
 
 
 
+
+
 # (3). Banking System
 # Account Hierarchy:
 # Base class Account with attributes like account_number, balance, customer.
@@ -272,84 +424,85 @@
 
 # Ans...
 
-# class Bank:
-#     def __init__(self,account_number,name,initial_balance=0):
-#         self.acc_num = account_number
-#         self.n = name
-#         self.balance = initial_balance
+class Account:
+    def __init__(self, account_number, balance, customer):
+        self.account_number = account_number
+        self.balance = balance
+        self.customer = customer
 
-#     def deposit(self,amount):
-#         self.balance += amount
-#         print(f"Deposited {amount}. New balance is : {self.balance}")
+    def basic_details(self):
+        return f"\nCustomer name : {self.customer} \nAccount number : {self.account_number} \nInitial Balance : {self.balance} \nInterest : {self.interest_rate:.2f} \nTotal Balance : {self.add_interest}"
 
-#     def withdraw(self,amount):
-#         if(amount <= self.balance):
-#             self.balance -= amount
-#             print(f"Withdraw {amount}. New balance is : {self.balance}")
-#         else:
-#             print("Insufficient funds.")
+    def deposit(self):
+        amount = int(input("\nEnter deposited amount : "))
+        self.balance += amount
+        print(f"{amount} has been deposited in your account.")
 
-#     def check_balance(self):
-#         print(f"current balance is : {self.balance}")
+    def withdraw(self):
+        amount = int(input("\nEnter withdrawl amount : "))
+        if amount > self.balance:
+            print("Insufficient balance.")
+        else:
+            self.balance -= amount
+            print(f"{amount} has been withdrawn from your accopunt.")
 
-# accounts = []
+    def check_balance(self):
+        print(f"Your current balance is : {self.balance}")
 
-# class SavingsAccount(Bank):
-#     def __init__(self, account_number, balance, customer, interest_rate):
-#         super().__init__(account_number, balance, customer)
-#         self.interest_rate = interest_rate
 
-#     def calculate_interest(self):
-#         interest = self.balance * self.interest_rate
-#         self.balance += interest
-#         return f"\nInterest added : {interest}. \nNew balance is : {self.balance}"
+class SavingsAccount(Account):
+    def __init__(self, account_number, balance, customer, interest_rate):
+        super().__init__(account_number, balance, customer)
+        self.interest_rate = interest_rate
 
-# while True:
-#     print("\nBank Management System")
-#     print("1. Create Account")
-#     print("2. Deposit Amount")
-#     print("3. Withdraw Amount")
-#     print("4. Check Bank Balance")
-#     print("5. Exit")
+    def add_interest(self):
+        interest = self.balance * (self.interest_rate / 100)
+        return interest        
 
-#     choice = input("Enter your choice (1-5) : ")
+if __name__ == "__main__":
+    cus1 = SavingsAccount(101, 5000, "Suraj Singh", 7)
+    cus2 = SavingsAccount(102, 8000, "Nikunj Patel", 7)
 
-#     if (choice == "1"):
-#         account_number = input("Enter your account number : ")
-#         name = input("Enter Your name : ")
-#         account = Bank(account_number,name)
-#         accounts.append(account)
-#         print("Congratulations your account created successfully...")
+    print(cus1.basic_details())
+    print(cus1.add_interest())
+    cus1.check_balance()
 
-#     elif (choice == "2"):
-#         account_number = input("Enter your account number : ")
-#         if (account.acc_num == account_number):
-#             amount = float(input("Enter deposit amount: "))
-#             account.deposit(amount)
-#         else:
-#             print("Account Not Found.")
+    print(cus2.basic_details())
+    print(cus2.add_interest())
+    cus2.check_balance()
 
-#     elif (choice == "3"):
-#         account_number = input("Enter your account number : ")
-#         if (account.acc_num == account_number):
-#             amount = float(input("Enter deposit amount: "))
-#             account.withdraw(amount)
-#         else:
-#             print("Account Not Found.")
 
-#     elif (choice == "4"):
-#         account_number = input("Enter your account number : ")
-#         if (account.acc_num == account_number):
-#             account.check_balance()
-#         else:
-#             print("Account Not Found.")
 
-#     elif (choice == "5"):
-#         print("Exiting the program...")
-#         break
 
-#     else:
-#         print("Invalid choice. Please try again.")
+
+    # cus1 = Account(101, 5000, "Deepak Shah")
+    # cus2 = Account(102, 7000, "Vinesh Gupta")
+    # print(cus1.basic_details())
+    # print(cus2.basic_details())
+
+    # cus1.deposit()
+    # cus1.basic_details()
+    # cus1.check_balance()
+
+    # cus2.withdraw()
+    # cus2.basic_details()
+    # cus2.check_balance()
+
+
+
+
+
+
+
+
+
+
+
+
+# class CheckingAccount(Account):
+#     def __init__(self, limit = 1000):
+#         Account.__init__(self)
+#         self.limit = limit
 
 
 
@@ -369,95 +522,95 @@
 
 # Ans...
 
-class Call:
-    def __init__(self, caller, callee, start_time, end_time):
-        self.caller = caller
-        self.callee = callee
-        self.start_time = start_time
-        self.end_time = end_time
+# class Call:
+#     def __init__(self, caller, callee, start_time, end_time):
+#         self.caller = caller
+#         self.callee = callee
+#         self.start_time = start_time
+#         self.end_time = end_time
 
-    def calculate_duration(self):
-        duration = self.end_time - self.start_time
-        return duration
+#     def calculate_duration(self):
+#         duration = self.end_time - self.start_time
+#         return duration
 
-class VoiceCall(Call):
-    def __init__(self, caller, callee, start_time, end_time):
-        super().__init__(caller, callee, start_time, end_time)
+# class VoiceCall(Call):
+#     def __init__(self, caller, callee, start_time, end_time):
+#         super().__init__(caller, callee, start_time, end_time)
 
-    def record_call(self):
-        print(f"Recording Voice call : from {self.caller} to {self.callee}")
+#     def record_call(self):
+#         print(f"Recording Voice call : from {self.caller} to {self.callee}")
 
-class VideoCall(Call):
-    def __init__(self, caller, callee, start_time, end_time, video_quality):
-        super().__init__(caller, callee, start_time, end_time)
-        self.video_quality = video_quality
+# class VideoCall(Call):
+#     def __init__(self, caller, callee, start_time, end_time, video_quality):
+#         super().__init__(caller, callee, start_time, end_time)
+#         self.video_quality = video_quality
 
-    def record_call(self):
-        print(f"Recording Video call : from {self.caller} to {self.callee} at {self.video_quality}")
+#     def record_call(self):
+#         print(f"Recording Video call : from {self.caller} to {self.callee} at {self.video_quality}")
 
-class ConferenceCall(Call):
-    def __init__(self, caller, participants, start_time, end_time):
-        super().__init__(caller, participants[0], start_time, end_time)
-        self.participants = participants
+# class ConferenceCall(Call):
+#     def __init__(self, caller, participants, start_time, end_time):
+#         super().__init__(caller, participants[0], start_time, end_time)
+#         self.participants = participants
 
-    def record_call(self):
-        print(f"Recording Reference call with participants : {', '.join(self.participants)}.")
-
-
-class Customer:
-    def __init__(self, customer_id, name, address):
-        self.customer_id = customer_id
-        self.name = name
-        self.address = address
-
-    def generate_bill(self):
-        return f"\nBill for {self.name} (ID : {self.customer_id})"
+#     def record_call(self):
+#         print(f"Recording Reference call with participants : {', '.join(self.participants)}.")
 
 
-class IndividualCustomer(Customer):
-    def __init__(self, customer_id, name, address, phone_number):
-        super().__init__(customer_id, name, address)
-        self.phone_number = phone_number
+# class Customer:
+#     def __init__(self, customer_id, name, address):
+#         self.customer_id = customer_id
+#         self.name = name
+#         self.address = address
 
-    def generate_bill(self):
-        base_bill = super().generate_bill()
-        return f"{base_bill}\nPhone Number : {self.phone_number}"
-
-
-class CorporateCustomer(Customer):
-    def __init__(self, customer_id, name, address, company_name, tax_id):
-        super().__init__(customer_id, name, address)
-        self.company_name = company_name
-        self.tax_id = tax_id
-
-    def generate_bill(self):
-        base_bill = super().generate_bill()
-        return f"{base_bill}\nCompany Name is : {self.company_name}\nTax ID - {self.tax_id}"
+#     def generate_bill(self):
+#         return f"\nBill for {self.name} (ID : {self.customer_id})"
 
 
-if __name__ == "__main__":
-    print("\n..........Telecommunication System..........")
+# class IndividualCustomer(Customer):
+#     def __init__(self, customer_id, name, address, phone_number):
+#         super().__init__(customer_id, name, address)
+#         self.phone_number = phone_number
 
-    individual = IndividualCustomer(101, "Pooja Shukla", "89, street road", 1234567890)
-    corporate = CorporateCustomer(201, "Mihir Mehra", "45, New Street", "ABC pvt ltd.", 12345)
+#     def generate_bill(self):
+#         base_bill = super().generate_bill()
+#         return f"{base_bill}\nPhone Number : {self.phone_number}"
 
-    voice_call = VoiceCall(individual.name, "Manoj Patel", 5, 30)
-    video_call = VideoCall(individual.name, "Chetna Nair", 10, 50, "720p")
-    conference_call = ConferenceCall(corporate.name, ["Sneha", "Bobby", "Kreeva"], 50, 150)
 
-    print("\nCalls :")
-    print(f"\nVoice Call Duration is : {voice_call.calculate_duration()} seconds")
-    voice_call.record_call()
+# class CorporateCustomer(Customer):
+#     def __init__(self, customer_id, name, address, company_name, tax_id):
+#         super().__init__(customer_id, name, address)
+#         self.company_name = company_name
+#         self.tax_id = tax_id
 
-    print(f"\nVideo Call Duration is : {video_call.calculate_duration()} seconds")
-    video_call.record_call()
+#     def generate_bill(self):
+#         base_bill = super().generate_bill()
+#         return f"{base_bill}\nCompany Name is : {self.company_name}\nTax ID - {self.tax_id}"
 
-    print(f"\nConference Call Duration is : {conference_call.calculate_duration()} seconds")
-    conference_call.record_call()
 
-    print("\nGenerating Bills :")
-    print(individual.generate_bill())
-    print(corporate.generate_bill())
+# if __name__ == "__main__":
+#     print("\n..........Telecommunication System..........")
+
+#     individual = IndividualCustomer(101, "Pooja Shukla", "89, street road", 1234567890)
+#     corporate = CorporateCustomer(201, "Mihir Mehra", "45, New Street", "ABC pvt ltd.", 12345)
+
+#     voice_call = VoiceCall(individual.name, "Manoj Patel", 5, 30)
+#     video_call = VideoCall(individual.name, "Chetna Nair", 10, 50, "720p")
+#     conference_call = ConferenceCall(corporate.name, ["Sneha", "Bobby", "Kreeva"], 50, 150)
+
+#     print("\nCalls :")
+#     print(f"\nVoice Call Duration is : {voice_call.calculate_duration()} seconds")
+#     voice_call.record_call()
+
+#     print(f"\nVideo Call Duration is : {video_call.calculate_duration()} seconds")
+#     video_call.record_call()
+
+#     print(f"\nConference Call Duration is : {conference_call.calculate_duration()} seconds")
+#     conference_call.record_call()
+
+#     print("\nGenerating Bills :")
+#     print(individual.generate_bill())
+#     print(corporate.generate_bill())
 
 
 
