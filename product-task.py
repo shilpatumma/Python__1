@@ -424,87 +424,151 @@
 
 # Ans...
 
-class Account:
-    def __init__(self, account_number, balance, customer):
-        self.account_number = account_number
-        self.balance = balance
-        self.customer = customer
+# from datetime import datetime
 
-    def basic_details(self):
-        return f"\nCustomer name : {self.customer} \nAccount number : {self.account_number} \nInitial Balance : {self.balance} \nInterest : {self.interest_rate:.2f} \nTotal Balance : {self.add_interest}"
+# # Account Hierarchy
+# class Account:
+#     def _init_(self, account_number, customer_name, balance, account_type):
+#         self.account_number = account_number
+#         self.customer_name = customer_name
+#         self.balance = balance
+#         self.account_type = account_type
 
-    def deposit(self):
-        amount = int(input("\nEnter deposited amount : "))
-        self.balance += amount
-        print(f"{amount} has been deposited in your account.")
+#     def deposit(self, amount):
+#         self.balance += amount
+#         print(f"${amount:.2f} deposited. New balance: ${self.balance:.2f}")
 
-    def withdraw(self):
-        amount = int(input("\nEnter withdrawl amount : "))
-        if amount > self.balance:
-            print("Insufficient balance.")
-        else:
-            self.balance -= amount
-            print(f"{amount} has been withdrawn from your accopunt.")
+#     def withdraw(self, amount):
+#         if amount > self.balance:
+#             print("Insufficient funds!")
+#         else:
+#             self.balance -= amount
+#             print(f"${amount:.2f} withdrawn. New balance: ${self.balance:.2f}")
 
-    def check_balance(self):
-        print(f"Your current balance is : {self.balance}")
+#     def get_account_details(self):
+#         return f"Account Number: {self.account_number}\nCustomer: {self.customer_name}\nBalance: ${self.balance:.2f}\nAccount Type: {self.account_type}\n"
 
+# # Subclass for Savings Account
+# class SavingsAccount(Account):
+#     def _init_(self, account_number, customer_name, balance, interest_rate):
+#         super()._init_(account_number, customer_name, balance, account_type="Savings")
+#         self.interest_rate = interest_rate
 
-class SavingsAccount(Account):
-    def __init__(self, account_number, balance, customer, interest_rate):
-        super().__init__(account_number, balance, customer)
-        self.interest_rate = interest_rate
+#     def calculate_interest(self):
+#         interest = self.balance * self.interest_rate
+#         print(f"Interest calculated: ${interest:.2f}")
+#         return interest
 
-    def add_interest(self):
-        interest = self.balance * (self.interest_rate / 100)
-        return interest        
+#     def apply_interest(self):
+#         interest = self.calculate_interest()
+#         self.deposit(interest)
 
-if __name__ == "__main__":
-    cus1 = SavingsAccount(101, 5000, "Suraj Singh", 7)
-    cus2 = SavingsAccount(102, 8000, "Nikunj Patel", 7)
-
-    print(cus1.basic_details())
-    print(cus1.add_interest())
-    cus1.check_balance()
-
-    print(cus2.basic_details())
-    print(cus2.add_interest())
-    cus2.check_balance()
-
-
-
-
-
-    # cus1 = Account(101, 5000, "Deepak Shah")
-    # cus2 = Account(102, 7000, "Vinesh Gupta")
-    # print(cus1.basic_details())
-    # print(cus2.basic_details())
-
-    # cus1.deposit()
-    # cus1.basic_details()
-    # cus1.check_balance()
-
-    # cus2.withdraw()
-    # cus2.basic_details()
-    # cus2.check_balance()
-
-
-
-
-
-
-
-
-
-
-
-
+# # Subclass for Checking Account
 # class CheckingAccount(Account):
-#     def __init__(self, limit = 1000):
-#         Account.__init__(self)
-#         self.limit = limit
+#     def _init_(self, account_number, customer_name, balance, overdraft_limit):
+#         super()._init_(account_number, customer_name, balance, account_type="Checking")
+#         self.overdraft_limit = overdraft_limit
 
+#     def withdraw(self, amount):
+#         if amount > self.balance + self.overdraft_limit:
+#             print("Overdraft limit exceeded!")
+#         else:
+#             self.balance -= amount
+#             print(f"${amount:.2f} withdrawn. New balance: ${self.balance:.2f}")
 
+# # Subclass for Fixed Deposit
+# class FixedDeposit(Account):
+#     def _init_(self, account_number, customer_name, balance, interest_rate, maturity_date):
+#         super()._init_(account_number, customer_name, balance, account_type="Fixed Deposit")
+#         self.interest_rate = interest_rate
+#         self.maturity_date = maturity_date
+
+#     def calculate_interest(self):
+#         interest = self.balance * self.interest_rate
+#         print(f"Interest calculated: ${interest:.2f}")
+#         return interest
+
+#     def withdraw(self, amount):
+#         if datetime.now().date() < self.maturity_date:
+#             print("Cannot withdraw before maturity date!")
+#         else:
+#             super().withdraw(amount)
+
+#     def get_account_details(self):
+#         base_details = super().get_account_details()
+#         return f"{base_details}Maturity Date: {self.maturity_date}\nInterest Rate: {self.interest_rate:.2%}\n"
+
+# # Transaction Hierarchy
+# class Transaction:
+#     def _init_(self, transaction_id, account, amount):
+#         self.transaction_id = transaction_id
+#         self.account = account
+#         self.amount = amount
+#         self.date = datetime.now()
+
+#     def process_transaction(self):
+#         raise NotImplementedError("Subclasses should implement this method")
+
+#     def get_transaction_details(self):
+#         return f"Transaction ID: {self.transaction_id}\nAccount Number: {self.account.account_number}\nAmount: ${self.amount:.2f}\nDate: {self.date}\n"
+
+# # Subclass for Deposit
+# class Deposit(Transaction):
+#     def process_transaction(self):
+#         self.account.deposit(self.amount)
+#         print(f"Deposit of ${self.amount:.2f} processed for Account {self.account.account_number}.")
+
+# # Subclass for Withdrawal
+# class Withdrawal(Transaction):
+#     def process_transaction(self):
+#         self.account.withdraw(self.amount)
+#         print(f"Withdrawal of ${self.amount:.2f} processed for Account {self.account.account_number}.")
+
+# # Subclass for Transfer
+# class Transfer(Transaction):
+#     def _init_(self, transaction_id, account, amount, beneficiary_account):
+#         super()._init_(transaction_id, account, amount)
+#         self.beneficiary_account = beneficiary_account
+
+#     def process_transaction(self):
+#         if self.account.balance >= self.amount:
+#             self.account.withdraw(self.amount)
+#             self.beneficiary_account.deposit(self.amount)
+#             print(f"Transfer of ${self.amount:.2f} from Account {self.account.account_number} to Account {self.beneficiary_account.account_number} processed.")
+#         else:
+#             print("Insufficient funds for transfer!")
+
+#     def get_transaction_details(self):
+#         base_details = super().get_transaction_details()
+#         return f"{base_details}Beneficiary Account: {self.beneficiary_account.account_number}\n"
+
+# # Example Usage
+# if _name_ == "_main_":
+#     # Creating accounts
+#     savings_account = SavingsAccount("SA12345", "Alice Johnson", 5000.00, interest_rate=0.02)
+#     checking_account = CheckingAccount("CA54321", "Bob Smith", 3000.00, overdraft_limit=500.00)
+#     fd_account = FixedDeposit("FD67890", "Charlie Brown", 10000.00, interest_rate=0.05, maturity_date=datetime(2025, 12, 31).date())
+
+#     # Printing account details
+#     print(savings_account.get_account_details())
+#     print(checking_account.get_account_details())
+#     print(fd_account.get_account_details())
+
+#     print("\n" + "="*40 + "\n")
+
+#     # Processing transactions
+#     deposit = Deposit("TXN001", savings_account, 200.00)
+#     deposit.process_transaction()
+
+#     withdrawal = Withdrawal("TXN002", checking_account, 3500.00)
+#     withdrawal.process_transaction()
+
+#     transfer = Transfer("TXN003", savings_account, 1000.00, beneficiary_account=checking_account)
+#     transfer.process_transaction()
+
+#     # Applying interest on Savings Account
+#     savings_account.apply_interest()
+        
 
 
 
@@ -521,6 +585,109 @@ if __name__ == "__main__":
 # Subclasses: IndividualCustomer, CorporateCustomer, etc., with specific attributes (e.g., company_name, tax_id) and methods (e.g., generate_bill).
 
 # Ans...
+
+
+
+
+
+class Call:
+    def __init__(self, caller, callee, start_time, end_time):
+        self.caller = caller
+        self.callee = callee
+        self.start_time = start_time
+        self.end_time = end_time
+
+    def calculate_duration(self):
+        duration = self.end_time - self.start_time
+        return duration
+
+
+class VoiceCall(Call):
+    def __init__(self, caller, callee, start_time, end_time):
+        super().__init__(caller, callee, start_time, end_time)
+
+    def record_call(self):
+        print(f"Recording voice call : from {self.caller} to {self.callee}")
+
+
+class VideoCall(Call):
+    def __init__(self, caller, callee, start_time, end_time, video_quality):
+        super().__init__(caller, callee, start_time, end_time)
+        self.video_quality = video_quality
+
+    def record_call(self):
+        print(f"Recording video call : from {self.caller} to {self.callee} at {self.video_quality}")
+
+
+class ConferenceCall(Call):
+    def __init__(self, caller, participants, start_time, end_time):
+        super().__init__(caller, participants, start_time, end_time)
+        self.participants = participants
+
+    def record_call(self):
+        print(f"Recording Conference call with participants : {', '.join(self.participants)}")
+
+
+class Customer:
+    def __init__(self, customer_id, name, address):
+        self.customer_id = customer_id
+        self.name = name
+        self.address = address
+
+    def generate_bill(self):
+        return f"\nBill for {self.name} & ID : {self.customer_id}"
+
+
+class IndividualCustomer(Customer):
+    def __init__(self, customer_id, name, address, phone_number):
+        super().__init__(customer_id, name, address)
+        self.phone_number = phone_number
+
+    def generate_bill(self, charge):
+        customer_bill = super().generate_bill()
+        self.charge = charge
+        return f"{customer_bill} \nPhone Number : {self.phone_number} \nCharge : {self.charge}"
+
+
+class CorporateCustomer(Customer):
+    def __init__(self, customer_id, name, address, company_name, tax_id):
+        super().__init__(customer_id, name, address)
+        self.company_name = company_name
+        self.tax_id = tax_id
+
+    def generate_bill(self, charge):
+        customer_bill = super().generate_bill()
+        self.charge = charge
+        return f"{customer_bill} \nCompany Name : {self.company_name} & Tax ID : {self.tax_id} \ncharge : {self.charge}"
+
+if __name__ == "__main__":
+    print("\n************ Telecommunication System ************")
+
+    individual = IndividualCustomer(101, "Priya", "45, new bunglow, Mumbai.", 1234567890)
+    corporate = CorporateCustomer(201, "Sunidhi", "78, shine complex, Delhi.", "ABC Tech company", 12345)
+
+    voice_call = VoiceCall("Priya", "Fenil", 0, 240)
+    video_call = VideoCall("Priya", "Vivek", 0, 300, "720p")
+    conference_call = ConferenceCall("Sunidhi", ["riya", "Kevin", "Jenish"], 0, 360)
+
+    print(f"\nvoice call duration : {voice_call.calculate_duration()} seconds.")
+    voice_call.record_call()
+
+    print(f"\nvideo call duration : {video_call.calculate_duration()} seconds.")
+    video_call.record_call()
+
+    print(f"\nconference call duration : {conference_call.calculate_duration()} seconds.")
+    conference_call.record_call()
+
+    print(individual.generate_bill(150))
+    print(corporate.generate_bill(250))
+
+
+
+
+
+
+
 
 # class Call:
 #     def __init__(self, caller, callee, start_time, end_time):
@@ -554,7 +721,7 @@ if __name__ == "__main__":
 #         self.participants = participants
 
 #     def record_call(self):
-#         print(f"Recording Reference call with participants : {', '.join(self.participants)}.")
+#         print(f"Recording Conference call with participants : {', '.join(self.participants)}.")
 
 
 # class Customer:
