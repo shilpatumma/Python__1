@@ -90,3 +90,55 @@
 
 # Company.comapny_name = classmethod(Company.comapny_name)
 # Company.comapny_name()
+
+
+
+
+
+# Method Overriding.
+# class Animal:
+#     def animal(self):
+#         print("Animal class")
+
+# class Dog(Animal):
+#     def dog(self):
+#         print("\nDog class")
+
+# class Cat(Animal):
+#     def cat(self):
+#         print("\nCat class")
+
+# d = Dog()
+# d.dog()
+# d.animal()
+
+# c = Cat()
+# c.cat()
+# c.animal()
+
+
+
+# Method Overloading.
+# class Tiger:
+#     def nature(self):
+#         print("\nDangerous")
+
+#     def color(self):
+#         print("Orange with black strips")
+
+# class Elephant:
+#     def nature(self):
+#         print("Calm and harmless")
+
+#     def color(self):
+#         print("Grayish black\n")
+
+# t = Tiger()
+# e = Elephant()
+
+# for animal in(t, e):
+#     animal.nature()
+#     animal.color()
+
+
+
